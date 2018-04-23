@@ -8,10 +8,28 @@ function split(wholeArray) {
 }
 
 function merge(firstHalf,secondHalf){
-  if(firstHalf > secondHalf){
-
+  let headB = 0;
+  let headA = 0;
+  let sortedArr = [];
+  console.log('first half', headA,firstHalf.length)
+  console.log('second half', headB,secondHalf.length)
+  while(headA === firstHalf.length && headB === secondHalf.length){
+    if(firstHalf[headA]=== undefined){
+      sortedArr.push(secondHalf[headB]);
+      headB++;
+    } else if(secondHalf[headB] === undefined){
+      sortedArr.push(firstHalf[headA]);
+      headA++;
+    } else if(firstHalf[headA] < secondHalf[headB]){
+      sortedArr.push(firstHalf[headA]);
+      headA++;
+    } else {
+      sortedArr.push(secondHalf[headB]);
+      headB++;
+    }
   }
-  return firstHalf.concat(secondHalf);
+
+  return sortedArr;
 }
 
 
@@ -19,7 +37,7 @@ function mergeSort(array){
   if(array.length === 1){
     return array;
   }
-  let splittedArr = spilt(array);
+  let splittedArr = split(array);
   let firstHalf = splittedArr[0];
   let secondHalf = splittedArr[1];
   return merge(mergeSort(firstHalf),mergeSort(secondHalf));
