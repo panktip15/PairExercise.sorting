@@ -11,16 +11,8 @@ function merge(firstHalf,secondHalf){
   let headB = 0;
   let headA = 0;
   let sortedArr = [];
-  console.log('first half', headA,firstHalf.length)
-  console.log('second half', headB,secondHalf.length)
-  while(headA <= firstHalf.length && headB <= secondHalf.length){
-    if(firstHalf[headA] === undefined){
-      sortedArr.push(secondHalf[headB]);
-      headB++;
-    } else if(secondHalf[headB] === undefined){
-      sortedArr.push(firstHalf[headA]);
-      headA++;
-    } else if(firstHalf[headA] < secondHalf[headB]){
+  while(headA < firstHalf.length && headB < secondHalf.length){
+   if(firstHalf[headA] < secondHalf[headB]){
       sortedArr.push(firstHalf[headA]);
       headA++;
     } else {
@@ -28,6 +20,10 @@ function merge(firstHalf,secondHalf){
       headB++;
     }
   }
+
+  for(;headA<firstHalf.length; headA++){sortedArr.push(firstHalf[headA])};
+  for(;headB<secondHalf.length; headB++){sortedArr.push(secondHalf[headB])};
+
 
   return sortedArr;
 }
