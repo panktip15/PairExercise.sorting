@@ -13,8 +13,8 @@ function merge(firstHalf,secondHalf){
   let sortedArr = [];
   console.log('first half', headA,firstHalf.length)
   console.log('second half', headB,secondHalf.length)
-  while(headA === firstHalf.length && headB === secondHalf.length){
-    if(firstHalf[headA]=== undefined){
+  while(headA <= firstHalf.length && headB <= secondHalf.length){
+    if(firstHalf[headA] === undefined){
       sortedArr.push(secondHalf[headB]);
       headB++;
     } else if(secondHalf[headB] === undefined){

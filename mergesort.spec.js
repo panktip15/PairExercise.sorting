@@ -10,8 +10,10 @@ describe('Split Array function', function() {
 
 
 describe('Merge function', function(){
+
   it('is able to merge two sorted arrays into one sorted array', function(){
-    expect(merge([3,9],[6])).toEqual([3,6,9]);
+    expect(merge([9],[6])).toEqual([6,9]);
+    expect(merge([3,9],[6,10])).toEqual([3,6,9,10]);
   });
 });
 
