@@ -20,4 +20,13 @@ describe('Bubble Sort', function () {
     expect( bubbleSort(arr) ).toEqual([1, 3, 4, 5, 6, 8]);
   });
 
+  it('should count how many iterations occur', function(){
+    const arr = [4,1,3];
+    spyOn(window, 'swap').and.callThrough();
+    bubbleSort(arr);
+    expect(swap.calls.count()).toEqual(2);
+  });
+
 });
+
+
